@@ -1,0 +1,88 @@
+GitHub. HW_2
+1. На локальном репозитории сделать ветки для:
+- Postman
+git branch Postman
+
+- Jmeter
+git branch Jmeter
+
+- CheckLists
+git branch CheckLists
+
+- Bag Reports
+git branch Bag_Reports
+
+- SQL
+git branch SQL
+
+- Charles
+git branch Charles
+
+- Mobile testing
+git branch Mobile_testing
+
+2. Запушить все ветки на внешний репозиторий
+git push -u origin Postman
+git push -u origin Jmeter
+git push -u origin CheckLists
+git push -u origin Bag_Reports
+git push -u origin SQL
+git push -u origin Charles
+git push -u origin Mobile_testing
+
+3. В ветке Bag Reports сделать текстовый документ со структурой баг репорта
+git checkout Bag_Reports
+cat > bag_reports.txt
+id: 543,
+	preconditions: Включить пермишен на создание заявления.
+	title: На главной странице поехала верстка,
+	severity: высокая,
+	priority: высокая,
+	steps_to_reproduction: 
+		1. Авторизоваться в системе.
+		2. Перейти на главную страницу.
+    
+	actual_result: Едет верстка на странице
+	expected_result: на главной странице поле выглядит норм
+	environment: Браузер - хром
+	responsible: Марина
+	attachment: картинка
+(ctrl+C)
+
+4. Запушить структуру багрепорта на внешний репозиторий
+git add .
+git commit -m "add bag_reports.txt"
+git push
+
+
+5. Вмержить ветку Bag Reports в Main
+git checkout main
+git merge Bag_Reports -m "merge_Bag_Reports"
+
+6. Запушить main на внешний репозиторий.
+git push
+
+7. В ветке CheckLists набросать структуру чек листа.
+git checkout CheckLists
+cat > CheckList.txt
+1) Ввести максимальное значение для длины и высоты грузовика, например, 30м и 10м, (произвольная граница)
+2) Ввести значения для длины и высоты грузовика больше, чем разрешено, например, 35м и 15м, (технологическая граница)
+3) Ввести все значения 0 для габаритов и массы для грузовика (логическая граница)
+(ctrl+C)
+
+8. Запушить структуру на внешний репозиторий
+git add .
+git commit -m "add CheckList.txt"
+git push
+
+9. На внешнем репозитории сделать Pull Request ветки CheckLists в main
+1) Нажать Pull requests;
+2) Нажать Compare & pull request;
+3) Нажать Create pull request
+4) merge pull request
+5) confirm merge
+
+10. Синхронизировать Внешнюю и Локальную ветки Main
+git checkout main
+git fetch
+git pull
